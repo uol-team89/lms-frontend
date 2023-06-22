@@ -2,6 +2,7 @@ import { Navigation } from "./navigation";
 import "./globals.css";
 import { Inter } from "next/font/google";
 
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -25,11 +26,15 @@ export default function RootLayout({
       name: "Students",
     },
   ];
+
+
   return (
     <html lang="en">
       <body className={inter.className}>
         <Navigation navLinks={navLinks}></Navigation>
+        <div className="p-3">
         {children}
+        </div>
       </body>
     </html>
   );
