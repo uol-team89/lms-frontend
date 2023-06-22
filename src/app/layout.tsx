@@ -15,6 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const navLinks: { name: string; href: string }[] = [
+    { href: "/", name: "Home" },
     {
       href: "/teachers",
       name: "Teachers",

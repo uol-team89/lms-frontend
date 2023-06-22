@@ -7,10 +7,9 @@ export const NavItem: React.FC<{
 }> = ({ name, href, isActive }) => {
   return (
     <>
-      <div>
+      <div className="text-lg">
         <Link
           href={href}
-
           className={isActive ? "text-blue-700 underline" : "text-white"}
         >
           {name}
