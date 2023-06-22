@@ -2,6 +2,7 @@
 import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
 import { ITeacher } from "../types/teacher";
 import { ISubject } from "../types/subject";
+import CrudPage from "../components/CrudPage";
 
 interface ITeachersProps {}
 
@@ -19,11 +20,9 @@ const columns: GridColDef[] = [
     width: 400,
     editable: false,
     valueGetter: (params: GridValueGetterParams) => {
-
-        return params.value.map((c: ISubject)=>c.title).join()
-    }
+      return params.value.map((c: ISubject) => c.title).join();
+    },
   },
-  
 ];
 
 const rows: ITeacher[] = [
@@ -47,10 +46,12 @@ const rows: ITeacher[] = [
 const Teachers: React.FC<ITeachersProps> = ({}) => {
   return (
     <div>
-        <h1>List of teachers</h1>
-      <div >
-        <DataGrid  columns={columns} rows={rows} />
-      </div>
+      <CrudPage
+        title="List of teachers"
+        dataGridColumnDefs={columns}
+        entityArray={rows}
+        buttonOnClick={()=>console.log('wtf')}
+      ></CrudPage>
     </div>
   );
 };
