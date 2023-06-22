@@ -11,7 +11,7 @@ export function Navigation({
   return (
     <nav className="flex justify-start gap-4 p-5">
       {navLinks.map((l) => (
-        <NavItem key={l.href} {...l} isActive={pathname.startsWith(l.name)}></NavItem>
+        <NavItem key={l.href} {...l} isActive={pathname.startsWith(l.href)}></NavItem>
       ))}
     </nav>
   );

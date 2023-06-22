@@ -1,9 +1,10 @@
-interface IStudentsProps {
+interface IStudentsProps {}
 
-}
-
-export const Students:React.FC<IStudentsProps> = ({}) => {
-    return <>
-    <p>students</p>
+const Students: React.FC<IStudentsProps> = ({}) => {
+  return (
+    <>
+      <p>students</p>
     </>
-}
+  );
+};
+export default Students;
