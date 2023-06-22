@@ -2,7 +2,7 @@
 import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
 import { ITeacher } from "../types/teacher";
 import { ISubject } from "../types/subject";
-import CrudPage from "../components/CrudPage";
+import CrudViewPage from "../components/CrudViewPage";
 
 interface ITeachersProps {}
 
@@ -46,12 +46,13 @@ const rows: ITeacher[] = [
 const Teachers: React.FC<ITeachersProps> = ({}) => {
   return (
     <div>
-      <CrudPage
-        title="List of teachers"
+      <CrudViewPage
+      entitySingularName="teacher"
+      entityPluralName="teachers"
         dataGridColumnDefs={columns}
         entityArray={rows}
         buttonOnClick={()=>console.log('wtf')}
-      ></CrudPage>
+      ></CrudViewPage>
     </div>
   );
 };

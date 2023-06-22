@@ -2,8 +2,10 @@ import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import Button, {IButtonProps} from "./Button";
 import React from "react";
 
-interface ICrudPageProps {
-  title: string;
+export interface ICrudPageProps {
+  entitySingularName: string;
+  entityPluralName: string;
+  listTitle?: string;
   entityArray: any[];
   dataGridColumnDefs: GridColDef[];
   createButtonText?: string
@@ -16,17 +18,20 @@ interface ICrudPageProps {
  * and also handles all the data fetching and creations
  *
  */
-const CrudPage: React.FC<ICrudPageProps> = ({
+const CrudViewPage: React.FC<ICrudPageProps> = ({
   entityArray,
   dataGridColumnDefs,
-  createButtonText="add new entity",
+  entityPluralName,
+  entitySingularName,
+  createButtonText=`add a new ${entitySingularName}`,
+  listTitle: title=`List of ${entityPluralName}`,
   ...props
 }) => {
   type entityType = (typeof entityArray)[0];
   return (
     <>
       <div className="flex justify-between items-center">
-      <h1 className="text-3xl">{props.title}</h1>
+      <h1 className="text-3xl">{title}</h1>
       <Button onClick={props.buttonOnClick}>{createButtonText}</Button>
       </div>
       <DataGrid columns={dataGridColumnDefs} rows={entityArray} />
@@ -34,4 +39,4 @@ const CrudPage: React.FC<ICrudPageProps> = ({
   );
 };
 
-export default CrudPage;
+export default CrudViewPage;
